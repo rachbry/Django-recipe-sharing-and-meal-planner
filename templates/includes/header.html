@@ -1,7 +1,7 @@
-    {% load static %}
-    
-    
+{% load static %}
+
 <header>
+  {% with request.resolver_match_url_name as url_name %}
 <!-- Bootstrap navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
@@ -14,13 +14,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                <a class="nav-link {% if url_name == 'home' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Recipes</a>
+                <a class="nav-link {% if url_name == 'recipes' %}active{% endif %}" href="#">Recipes</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">New</a>
+                <a class="nav-link {% if url_name == 'new' %}active{% endif %}" href="#">New</a>
               </li>
               <!-- login or out -->
               {% if user.is_authenticated %}
@@ -44,6 +44,6 @@
           </div>
         </div>
       </nav>
-
+{% endwith %}
 </header>
 
