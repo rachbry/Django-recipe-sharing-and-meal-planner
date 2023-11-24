@@ -27,10 +27,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['8000-rachbry-djangorecipesha-zhcpr3dpook.ws-eu106.gitpod.io']
+ALLOWED_HOSTS = ['8000-rachbry-djangorecipesha-zhcpr3dpook.ws-eu106.gitpod.io','.herokuapp.com']
 
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -94,6 +92,13 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://gitpod.io",
+    "https://*.herokuapp.com"
+    ]
+
+
 
 
 # Password validation
