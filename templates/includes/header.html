@@ -20,7 +20,7 @@
                 <a class="nav-link {% if url_name == 'recipes' %}active{% endif %}" href="#">Recipes</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {% if url_name == 'new' %}active{% endif %}" href="#">New</a>
+                <a class="nav-link {% if url_name == 'add_recipe' %}active{% endif %}" href="{% url 'add_recipe' %}">New</a>
               </li>
               <!-- login or out -->
               {% if user.is_authenticated %}
